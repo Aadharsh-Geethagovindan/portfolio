@@ -1,0 +1,23 @@
+# BreakPoint Website
+
+## Overview
+The BreakPoint website is an online information hub for players. It provides at-a-glance character stats and movesets, plus mechanics explanations designed to onboard new players quickly.
+
+## Key Features
+- Masonry-style character browsing experience (desktop-focused)
+- Individual character pages with detailed information
+- Mechanics documentation for core systems and gameplay rules
+
+## Technical Details
+- React + CSS
+- Content generated from a JSON replica of the game’s character data to keep information consistent and easy to update
+- Deployed on Vercel
+
+## Challenges & Solutions
+**Problem:** A masonry layout that looks “dynamic” is hard to keep consistent across many screen sizes.  
+**Approach:** Used a manual layout strategy that preserves the masonry appearance while remaining predictable across breakpoints.  
+**Result:** Stable layout behavior without unpredictable reflow issues.
+
+## Next Steps
+- Improve responsive masonry behavior for tablet/mobile
+- Add search/filter by role, element/type, or difficulty

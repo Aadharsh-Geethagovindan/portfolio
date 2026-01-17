@@ -1,0 +1,27 @@
+# BreakPoint Card Game
+
+## Overview
+BreakPoint is a fast-paced, turn-based 3v3 tactical card battler built in Unity. Players select a team of three characters and compete to defeat the opposing team through cooldown management, signature charge timing, and status effect interactions.
+
+## Key Features
+- Round-based system with cooldowns, signature charge, and real-time status effect resolution
+- Multiplayer integration using Mirror
+- Animated hit resolution and impact feedback
+
+## Technical Details
+- Built in Unity (C#)
+- Custom event announcement/subscription system used to decouple gameplay systems and UI
+- Data-driven character content (JSON) for scalable iteration
+
+## Challenges & Solutions
+**Problem:** Script-to-script references scaled poorly and quickly became unmanageable.  
+**Approach:** Introduced a centralized event announcement/subscription layer so systems could publish/subscribe without direct dependencies.  
+**Result:** Reduced coupling and made UI/gameplay updates easier to extend.
+
+**Problem:** Particle effects do not work cleanly with UI Canvas Overlay.  
+**Approach:** Replaced several particle-driven ambient effects with UI-friendly animated image/VFX solutions.  
+**Result:** Preserved visual feedback while keeping the UI pipeline stable.
+
+## Next Steps
+- Add a short gameplay demo video and a breakdown of the multiplayer model (authority + sync strategy)
+- Expand the “mechanics” writeup to include turn order, targeting, and effect timing

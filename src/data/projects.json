@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "breakpoint-card-game",
+    "title": "BreakPoint Card Game",
+    "oneLiner": "A fast-paced, turn-based 3v3 tactical card battler built in Unity with online multiplayer.",
+    "status": "In progress",
+    "stack": ["Unity", "C#", "Mirror", "Event-driven architecture", "JSON-driven content"],
+    "highlights": [
+      "Round-based turn system with cooldowns, signature charge, and status effect resolution",
+      "Online multiplayer using Mirror with synchronized gameplay state",
+      "Animated hit resolution and impact feedback for moment-to-moment clarity",
+      "Data-driven characters and abilities (JSON) to keep content scalable"
+    ],
+    "links": {
+      "github": "https://github.com/Aadharsh-Geethagovindan/BreakPoint.exe/tree/main"
+    },
+    "coverImage": "/projects/breakpoint/cover.png",
+    "featured": true
+  },
+  {
+    "slug": "breakpoint-website",
+    "title": "BreakPoint Website",
+    "oneLiner": "A public-facing information hub for BreakPoint players with character pages and mechanics documentation.",
+    "status": "Shipped",
+    "stack": ["React", "CSS", "Vercel", "JSON content model"],
+    "highlights": [
+      "Character directory with detailed stat and moveset pages",
+      "Mechanics documentation designed for quick onboarding",
+      "Masonry-style card layout optimized for desktop browsing",
+      "Site content generated from the same JSON schema used by the game"
+    ],
+    "links": {
+      "live": "https://breakpoint-site-three.vercel.app/"
+    },
+    "coverImage": "/projects/breakpoint-website/cover.png",
+    "featured": true
+  },
+  {
+    "slug": "hotsauced-website",
+    "title": "HotSauced Team Website",
+    "oneLiner": "A content-managed team hub with admin editing, sports scheduling, and lightweight RSVP workflows.",
+    "status": "In progress",
+    "stack": ["Next.js", "React", "Tailwind", "Supabase", "Vercel"],
+    "highlights": [
+      "Admin-editable content sections (no code changes required)",
+      "Sports sections + Code of Conduct designed for quick access on mobile",
+      "Game-day chips with RSVP support",
+      "PIN-based RSVP flow to avoid account creation while maintaining basic access control"
+    ],
+    "links": {
+      "live": "https://hotsauce-gamma.vercel.app/"
+    },
+    "coverImage": "/projects/hotsauced/cover.png",
+    "featured": false
+  }
+]

@@ -4,7 +4,7 @@
     "title": "BreakPoint Card Game",
     "oneLiner": "A fast-paced, turn-based 3v3 tactical card battler built in Unity with online multiplayer.",
     "status": "In progress",
-    "stack": ["Unity", "C#", "Mirror", "Event-driven architecture", "JSON-driven content"],
+    "stack": ["Unity", "C#", "Mirror", "Event-driven architecture", "JSON-driven content", "GIMP photo editing", "Audacity"],
     "highlights": [
       "Round-based turn system with cooldowns, signature charge, and status effect resolution",
       "Online multiplayer using Mirror with synchronized gameplay state",
@@ -15,7 +15,10 @@
       "github": "https://github.com/Aadharsh-Geethagovindan/BreakPoint.exe/tree/main"
     },
     "coverImage": "/projects/breakpoint/cover.png",
-    "featured": true
+    "featured": true,
+    "galleryImages": [
+      "/projects/breakpoint/cover.png"
+    ]
   },
   {
     "slug": "breakpoint-website",
@@ -33,7 +36,13 @@
       "live": "https://breakpoint-site-three.vercel.app/"
     },
     "coverImage": "/projects/breakpoint-website/cover.png",
-    "featured": true
+    "featured": true,
+    "galleryImages": [
+      "/projects/breakpoint-website/cover.png",
+      "/projects/breakpoint-website/img1.png",
+      "/projects/breakpoint-website/img2.png"
+      
+    ]
   },
   {
     "slug": "hotsauced-website",
@@ -51,6 +60,9 @@
       "live": "https://hotsauce-gamma.vercel.app/"
     },
     "coverImage": "/projects/hotsauced/cover.png",
-    "featured": false
+    "featured": false,
+    "galleryImages": [
+      "/projects/hotsauced/cover.png"
+    ]
   }
 ]

@@ -1,86 +1,118 @@
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getProject } from "@/data/projects";
+import ProjectMDX from "@/components/ProjectMDX";
+import Image from "next/image";
+import ImageCarousel from "@/components/ImageCarousel";
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const project = getProject(params.slug);
+  if (!project) return {};
 
-export default function HomePage() {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  return {
+    title: project.title,
+    description: project.oneLiner,
+    openGraph: {
+      title: project.title,
+      description: project.oneLiner,
+      images: [
+        {
+          url: project.coverImage,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+  };
+}
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const project = getProject(slug);
+  if (!project) return notFound();
+  const images = (project.galleryImages?.length ? project.galleryImages : [project.coverImage]).filter(Boolean);
 
   return (
-    <div className="space-y-12">
-      <section className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight">
-          Software projects
-        </h1>
-        <p className="max-w-2xl text-zinc-600">
-          Unity multiplayer systems, data-driven game content, and web apps built for real use.
-        </p>
-      </section>
+    <article className="space-y-8">
+      <header className="space-y-3">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h1 className="text-3xl font-semibold tracking-tight text-[#0066ff]">{project.title}</h1>
+          <span className="badge badge--progress">
+            {project.status}
+          </span>
+        </div>
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold">Featured</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {featured.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
-              className="rounded-2xl border p-5 shadow-sm transition hover:shadow-md"
+        <p className="max-w-2xl text-zinc-600">{project.oneLiner}</p>
+
+        <div className="flex flex-wrap gap-2 pt-1">
+          {project.stack.map((s) => (
+            <span
+              key={s}
+              className="chip"
             >
-              <div className="space-y-2">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold">{p.title}</h3>
-                  <span className="rounded-full border px-2 py-0.5 text-xs text-zinc-600">
-                    {p.status}
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-600">{p.oneLiner}</p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {p.stack.slice(0, 4).map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
+              {s}
+            </span>
           ))}
         </div>
-      </section>
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold">More</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {rest.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/projects/${p.slug}`}
-              className="rounded-2xl border p-5 shadow-sm transition hover:shadow-md"
-            >
-              <div className="space-y-2">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-base font-semibold">{p.title}</h3>
-                  <span className="rounded-full border px-2 py-0.5 text-xs text-zinc-600">
-                    {p.status}
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-600">{p.oneLiner}</p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {p.stack.slice(0, 4).map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Link>
+        <div className="flex flex-wrap gap-3 pt-2 text-sm">
+          {project.links.live && (
+            <a className="rounded-lg border px-3 py-2 hover:bg-zinc-50" href={project.links.live} target="_blank" rel="noreferrer">
+              Live
+            </a>
+          )}
+          {project.links.github && (
+            <a className="rounded-lg border px-3 py-2 hover:bg-zinc-50" href={project.links.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          )}
+          {project.links.video && (
+            <a className="rounded-lg border px-3 py-2 hover:bg-zinc-50" href={project.links.video} target="_blank" rel="noreferrer">
+              Demo video
+            </a>
+          )}
+          <Link className="rounded-lg border px-3 py-2 hover:bg-zinc-50" href="/">
+            Back
+          </Link>
+        </div>
+      </header>
+
+      <section className="panel panel--accent">
+        <h2 className="text-sm font-semibold text-[#0066ff]">Highlights</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">
+          {project.highlights.map((h) => (
+            <li key={h}>{h}</li>
           ))}
+        </ul>
+      </section>
+      {images.length > 0 && (
+        <section className="panel">
+          <div className="mb-3 flex items-end justify-between gap-4">
+            <h2 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase">
+              Screenshots
+            </h2>
+            <div className="text-xs text-zinc-500">
+              {images.length > 1 ? "Use arrows" : " "}
+            </div>
+          </div>
+
+          <ImageCarousel images={images} title={project.title} />
+        </section>
+      )}
+      <section className="content-spine">
+         <div className="prose prose-zinc max-w-3xl leading-relaxed">
+            <ProjectMDX slug={project.slug} />
         </div>
       </section>
-    </div>
+    </article>
   );
 }

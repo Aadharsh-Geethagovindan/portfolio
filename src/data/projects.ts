@@ -15,6 +15,7 @@ export type Project = {
   highlights: string[];
   links: ProjectLinks;
   coverImage: string;
+  galleryImages?: string[];
   featured: boolean;
 };
 

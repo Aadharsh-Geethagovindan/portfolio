@@ -2,8 +2,16 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Aadharsh G — Portfolio",
-  description: "Software projects: Unity, web, multiplayer, and data-driven systems.",
+  title: {
+    default: "Aadharsh G — Portfolio",
+    template: "%s — Aadharsh G",
+  },
+  description:
+    "Unity multiplayer systems, data-driven game content, and production-ready web apps.",
+  openGraph: {
+    type: "website",
+    siteName: "Aadharsh G",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -12,15 +20,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-white text-zinc-900">
         <header className="border-b">
           <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-            <Link href="/" className="font-semibold tracking-tight">
+            <Link href="/" className="brand">
               Aadharsh G
             </Link>
             <nav className="flex items-center gap-6 text-sm">
-              <Link href="/" className="hover:underline underline-offset-4">Projects</Link>
-              <Link href="/about" className="hover:underline underline-offset-4">About</Link>
+              <Link href="/" className="link">Projects</Link>
+              <Link href="/about" className="link">About</Link>
+              <Link href="/contact" className="link">Contact</Link>
               <a
                 href="/resume.pdf"
-                className="hover:underline underline-offset-4"
+                className="link"
                 target="_blank"
                 rel="noreferrer"
               >

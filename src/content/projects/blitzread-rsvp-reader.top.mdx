@@ -1,0 +1,23 @@
+## Overview
+BlitzRead is an Android-based RSVP (Rapid Serial Visual Presentation) reader designed to explore high-speed, distraction-free reading for both EPUB and PDF documents.
+The app focuses on a clean, minimal interface that lets users manage a small library, preview documents, and switch seamlessly between standard reading and RSVP mode.
+
+## Key Features
+- Local document library with thumbnail previews for EPUB and PDF files
+- Dual reading modes: traditional paged reading and RSVP speed-reading mode
+- Per-document navigation screen with metadata, read access, and deletion controls
+- Real-time WPM controls with play/pause and speed adjustment during RSVP
+- EPUB support with full metadata and cover handling via Readium
+
+## Technical Details
+- Built for Android using Kotlin and Jetpack Compose
+
+- EPUB support powered by the Readium Kotlin Toolkit (Navigator, Streamer, and Shared modules)
+
+- PDF rendering implemented using Android PdfRenderer
+
+- MVVM-style architecture with a centralized ViewModel for RSVP state and playback control
+
+- URI-based document handling with local caching for consistent access across sessions
+
+- Compose-based UI system with modular navigation bars and reusable reader components

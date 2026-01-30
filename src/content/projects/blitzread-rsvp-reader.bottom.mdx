@@ -1,0 +1,21 @@
+## Challenges & Solutions
+<Callout title="Challenge">
+Readium did not provide clear, end-to-end documentation for launching and wiring up the EPUB reader flow within a custom app architecture.
+</Callout>
+
+<Callout title="Solution">
+Downloaded and ran Readium’s official test application, traced its navigation and module setup, and reverse-engineered the reader launch path to adapt it into a Compose-based, URI-driven flow.
+</Callout> 
+
+<Callout title="Outcome">
+Successfully integrated full EPUB support with metadata and cover handling while maintaining a clean separation between the library, document navigation, and reader modes.
+</Callout>
+
+## Next Steps
+- Add in-reader search across EPUB and PDF content
+
+- Implement quick page navigation (jump to page/percentage/section)
+
+- Enable RSVP start from a selected word or long-press context
+
+- Expand RSVP controls (chunk size, pacing profiles, and visual focus modes)

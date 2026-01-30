@@ -1,0 +1,28 @@
+## Challenges & Solutions
+<Callout title="Challenge">
+Script-to-script references scaled poorly and quickly became unmanageable.
+</Callout>
+
+<Callout title="Solution">
+Introduced a centralized event announcement/subscription layer so systems could publish and subscribe without direct dependencies.
+</Callout>
+
+<Callout title="Outcome">
+Reduced coupling and made UI and gameplay updates easier to extend.
+</Callout>
+
+<Callout title="Challenge">
+ Particle effects do not work cleanly with UI Canvas Overlay.
+</Callout>
+
+<Callout title="Solution">
+Replaced several particle-driven ambient effects with UI-friendly animated image/VFX solutions.
+</Callout>  
+
+<Callout title="Outcome">
+Preserved visual feedback while keeping the UI pipeline stable.
+</Callout>
+
+## Next Steps
+- Add a short gameplay demo video and a breakdown of the multiplayer model (authority + sync strategy)
+- Expand the “mechanics” writeup to include turn order, targeting, and effect timing

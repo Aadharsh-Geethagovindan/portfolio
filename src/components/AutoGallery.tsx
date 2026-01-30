@@ -14,15 +14,15 @@ export default function AutoGallery({
 }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
-  const items = useMemo(() => {
-    // Flatten project images into gallery items
-    const flat: { src: string; title: string; slug: string }[] = [];
-    for (const p of projects) {
-      const imgs = p.galleryImages?.length ? p.galleryImages : [p.coverImage];
-      for (const src of imgs) flat.push({ src, title: p.title, slug: p.slug });
-    }
-    return flat;
-  }, [projects]);
+ const items = useMemo(() => {
+  return projects
+    .map((p) => ({
+      src: p.coverImage, // ONLY cover
+      title: p.title,
+      slug: p.slug,
+    }))
+    .filter((i) => i.src);
+}, [projects]);
 
   // Duplicate items for seamless looping
   const loopItems = [...items, ...items];
@@ -72,7 +72,7 @@ export default function AutoGallery({
 
       <div
         ref={scrollerRef}
-        className="flex gap-4 overflow-x-hidden"
+        className="flex gap-4 overflow-x-auto no-scrollbar touch-pan-x"
         onMouseEnter={() => (pausedRef.current = true)}
         onMouseLeave={() => (pausedRef.current = false)}
       >

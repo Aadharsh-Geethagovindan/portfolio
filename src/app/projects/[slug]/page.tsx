@@ -94,25 +94,52 @@ export default async function ProjectPage({
           ))}
         </ul>
       </section>
-      {images.length > 0 && (
-        <section className="panel">
-          <div className="mb-3 flex items-end justify-between gap-4">
-            <h2 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase">
-              Screenshots
-            </h2>
-            <div className="text-xs text-zinc-500">
-              {images.length > 1 ? "Use arrows" : " "}
-            </div>
-          </div>
+     
+      {project.links.video && (
+      <section className="panel panel--accent">
+        <div className="mb-3 flex items-end justify-between gap-4">
+          <h2 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase">
+            Demo
+          </h2>
+          <div className="text-xs text-zinc-500">Muted autoplay</div>
+        </div>
 
-          <ImageCarousel images={images} title={project.title} />
-        </section>
-      )}
-      <section className="content-spine">
-         <div className="prose prose-zinc max-w-3xl leading-relaxed">
-            <ProjectMDX slug={project.slug} />
+        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/30">
+          <video
+            className="w-full h-auto max-h-[70vh] mx-auto"
+            src={project.links.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+          />
         </div>
       </section>
+    )}
+      <section className="content-spine">
+      <div className="prose prose-zinc max-w-3xl leading-relaxed">
+        <ProjectMDX file={`${project.slug}.top`} />
+      </div>
+    </section>
+
+    {images.length > 0 && (
+      <section className="panel panel--accent">
+        <div className="mb-3 flex items-end justify-between gap-4">
+          <h2 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase">
+            Screenshots
+          </h2>
+          <div className="text-xs text-zinc-500">{images.length > 1 ? "Use arrows" : " "}</div>
+        </div>
+        <ImageCarousel images={images} title={project.title} />
+      </section>
+    )}
+
+    <section className="content-spine">
+      <div className="prose prose-zinc max-w-3xl leading-relaxed">
+        <ProjectMDX file={`${project.slug}.bottom`} />
+      </div>
+    </section>
     </article>
   );
 }

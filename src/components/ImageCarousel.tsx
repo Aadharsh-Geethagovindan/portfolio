@@ -27,7 +27,7 @@ export default function ImageCarousel({
         alt={`${title} screenshot ${idx + 1}`}
         width={1600}
         height={900}
-        className="h-64 sm:h-72 lg:h-96 w-full object-cover"
+        className="w-full h-auto max-h-[70vh] mx-auto object-contain"
         priority
       />
 

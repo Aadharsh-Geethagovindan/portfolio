@@ -12,13 +12,15 @@
       "Data-driven characters and abilities (JSON) to keep content scalable"
     ],
     "links": {
-      "github": "https://github.com/Aadharsh-Geethagovindan/BreakPoint.exe/tree/main"
+      "github": "https://github.com/Aadharsh-Geethagovindan/BreakPoint.exe/tree/main",
+      "video": "/projects/breakpoint/videos/demo.webm"
     },
     "coverImage": "/projects/breakpoint/cover.png",
     "featured": true,
     "galleryImages": [
       "/projects/breakpoint/cover.png"
     ]
+    
   },
   {
     "slug": "breakpoint-website",
@@ -36,7 +38,7 @@
       "live": "https://breakpoint-site-three.vercel.app/"
     },
     "coverImage": "/projects/breakpoint-website/cover.png",
-    "featured": true,
+    "featured": false,
     "galleryImages": [
       "/projects/breakpoint-website/cover.png",
       "/projects/breakpoint-website/img1.png",
@@ -64,5 +66,30 @@
     "galleryImages": [
       "/projects/hotsauced/cover.png"
     ]
-  }
+  },
+  {
+  "slug": "blitzread-rsvp-reader",
+  "title": "BlitzRead — RSVP Speed Reader",
+  "oneLiner": "An Android app for high-speed reading with dual-mode EPUB and PDF support using RSVP playback.",
+  "status": "v1 complete",
+  "stack": ["Kotlin", "Jetpack Compose", "Readium Kotlin Toolkit", "Android PdfRenderer"],
+  "highlights": [
+    "Local document library with thumbnail previews for EPUB and PDF files",
+    "Dual reading modes: traditional paged reading and RSVP speed-reading mode",
+    "Per-document navigation screen with metadata, read access, and deletion controls",
+    "Real-time WPM controls with play/pause and speed adjustment during RSVP",
+    "EPUB support with metadata and cover extraction via Readium",
+    "PDF rendering with performance-focused bitmap paging"
+  ],
+  "links": {"video": "/projects/blitzread/video/demo.webm"},
+  "coverImage": "/projects/blitzread/cover.png",
+  "featured": true,
+  "galleryImages": [
+    "/projects/blitzread/cover.png",
+    "/projects/blitzread/img1.png",
+    "/projects/blitzread/img2.png",
+    "/projects/blitzread/img3.png"
+  ]
+}
+
 ]

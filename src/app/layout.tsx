@@ -17,8 +17,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white text-zinc-900">
-        <header className="border-b">
+      <body className="min-h-screen bg-zinc-950 text-zinc-100">
+        <header className="border-b border-zinc-800">
           <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
             <Link href="/" className="brand">
               Aadharsh G
@@ -39,9 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        <main className="mx-auto max-w-5xl px-6 py-10">{children}</main>
+        <main className="mx-auto max-w-5xl px-6 py-10 bg-transparent">{children}</main>
 
-        <footer className="border-t">
+        <footer className="border-t border-zinc-800">
           <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-zinc-600">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span>© {new Date().getFullYear()} Aadharsh G</span>

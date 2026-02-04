@@ -1,0 +1,23 @@
+## Technical Details
+- Vite + React for a fast, component-driven front end
+- Tailwind CSS for consistent styling and rapid iteration
+- Supabase for authentication, database storage, and role-based access control
+- Role-based UI flows (student vs instructor) for scheduling, availability, and content editing
+- Availability model built around discrete 30-minute time slots to simplify booking logic and reduce edge cases
+
+## Challenges & Solutions
+<Callout title="Challenge">
+Scheduling introduced time zone discrepancies: lesson slots appeared correct locally, but storage and retrieval in UTC caused shifts and inconsistent displays across users.
+</Callout>
+
+<Callout title="Solution">
+Reworked the storage and retrieval approach to be time zone agnostic by standardizing how slots are represented and converting at the edges (UI input/output), rather than mixing local date-times with UTC at multiple points in the pipeline.
+</Callout>
+
+<Callout title="Outcome">
+Lesson requests and confirmations display consistently for both students and instructors, with predictable slot behavior across devices and time zones.
+</Callout>
+
+## Next Steps
+- Gather client feedback and refine the booking and admin editing UX
+- Add a summer camps page, including camp information and an optional sign-up flow

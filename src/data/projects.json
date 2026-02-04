@@ -47,6 +47,27 @@
     ]
   },
   {
+    "slug": "violin-studio-website",
+    "title": "Violet Violin Studio Website",
+    "oneLiner": "A role-based lesson scheduling and content management platform for a family-run violin studio.",
+    "status": "In progress",
+    "stack": ["Vite", "React", "Tailwind", "Supabase", "Vercel"],
+    "highlights": [
+      "Role-based dashboards with real-time booking management and confirmation workflow",
+      "Scheduling system with consecutive slot validation and timezone-aware storage",
+      "Admin CMS with inline editing for text content and image galleries",
+      "Mobile-first responsive design with optimized touch interactions"
+    ],
+    "links": {
+      "live": "https://violin-studio.vercel.app/"
+    },
+    "coverImage": "/projects/violinstudio/cover.png",
+    "featured": false,
+    "galleryImages": [
+      "/projects/violinstudio/cover.png"
+    ]
+  },
+  {
     "slug": "hotsauced-website",
     "title": "HotSauced Team Website",
     "oneLiner": "A content-managed team hub with admin editing, sports scheduling, and lightweight RSVP workflows.",
